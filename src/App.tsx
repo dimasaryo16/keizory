@@ -33,17 +33,24 @@ const CTAButton: React.FC<CTAButtonProps> = ({
   const hover = { scale: 1.05, y: -2 };
   const tap = { scale: 0.95 };
 
+  const transition = {
+    type: "spring" as const,
+    stiffness: 300,
+    damping: 20,
+    layout: { duration: 0.3 }
+  };
+
   if (variant === "primary") {
     return (
       <motion.button
         whileHover={hover}
         whileTap={tap}
-        transition={{ layout: { duration: 0.3 }, type: "spring", stiffness: 300, damping: 20 }}
+        transition={transition}
         {...rest}
         className={`rounded-full px-8 py-3 text-white font-semibold shadow-lg text-sm md:text-base ${className}`}
         style={{
           background: "linear-gradient(90deg,#261be6,#3b2cf2)",
-          boxShadow: "0 4px 20px rgba(59,44,242,0.3)",
+          boxShadow: "0 4px 20px rgba(59,44,242,0.3)"
         }}
       >
         {children}
@@ -55,7 +62,7 @@ const CTAButton: React.FC<CTAButtonProps> = ({
     <motion.button
       whileHover={hover}
       whileTap={tap}
-      transition={{ layout: { duration: 0.3 }, type: "spring", stiffness: 300, damping: 20 }}
+      transition={transition}
       {...rest}
       className={`rounded-full px-6 py-2 border-2 border-[#3b2cf2] text-[#3b2cf2] font-semibold bg-transparent hover:bg-[#f8f7ff] text-sm md:text-base ${className}`}
     >
@@ -63,6 +70,7 @@ const CTAButton: React.FC<CTAButtonProps> = ({
     </motion.button>
   );
 };
+
 
 // --- EFEK LOVE TRAIL ---
 type Love = { id: number; x: number; y: number };
