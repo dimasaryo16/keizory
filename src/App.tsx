@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import "./index.css";
+import type { HTMLMotionProps } from "framer-motion";
 
 // --- GRADIENT UTAMA ---
 const GRADIENT = "bg-gradient-to-r from-[#2f2ef7] to-[#9b8bf0]";
@@ -18,8 +19,7 @@ const textVariant: Variants = {
   }),
 };
 
-// --- KOMPONEN TOMBOL CTA ---
-type CTAButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+type CTAButtonProps = HTMLMotionProps<"button"> & {
   variant?: "primary" | "outline";
 };
 
@@ -155,7 +155,7 @@ const App: React.FC = () => {
             I Have Something For You, Do You Wanna See?
           </motion.p>
 
-          {/* Tombol */}
+          {/* Tombol */}  
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
