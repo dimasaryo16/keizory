@@ -4,6 +4,7 @@ import type { Variants } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import "./index.css";
 import type { HTMLMotionProps } from "framer-motion";
+import type { MotionProps } from "framer-motion";
 
 // --- GRADIENT UTAMA ---
 const GRADIENT = "bg-gradient-to-r from-[#2f2ef7] to-[#9b8bf0]";
@@ -23,6 +24,7 @@ type CTAButtonProps = HTMLMotionProps<"button"> & {
   variant?: "primary" | "outline";
 };
 
+
 const CTAButton: React.FC<CTAButtonProps> = ({
   variant = "primary",
   children,
@@ -31,12 +33,12 @@ const CTAButton: React.FC<CTAButtonProps> = ({
 }) => {
   const hover = { scale: 1.05, y: -2 };
   const tap = { scale: 0.95 };
-  const transition = {
-  type: "spring" as "spring",
-  stiffness: 300,
-  damping: 20,
-  };
 
+  const transition: MotionProps["transition"] = {
+    type: "spring",
+    stiffness: 300,
+    damping: 20,
+  };
 
   if (variant === "primary") {
     return (
