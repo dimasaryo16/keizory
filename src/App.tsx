@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import type { Variants } from "framer-motion";
+import type { Variants, Transition } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import "./index.css";
 import type { HTMLMotionProps } from "framer-motion";
@@ -23,7 +23,6 @@ type CTAButtonProps = HTMLMotionProps<"button"> & {
   variant?: "primary" | "outline";
 };
 
-
 const CTAButton: React.FC<CTAButtonProps> = ({
   variant = "primary",
   children,
@@ -33,11 +32,11 @@ const CTAButton: React.FC<CTAButtonProps> = ({
   const hover = { scale: 1.05, y: -2 };
   const tap = { scale: 0.95 };
 
-  const transition = {
-    type: "spring" as const,
+  // FIX: Transition harus pakai type Transition
+  const transition: Transition = {
+    type: "spring",
     stiffness: 300,
     damping: 20,
-    layout: { duration: 0.3 }
   };
 
   if (variant === "primary") {
@@ -50,7 +49,7 @@ const CTAButton: React.FC<CTAButtonProps> = ({
         className={`rounded-full px-8 py-3 text-white font-semibold shadow-lg text-sm md:text-base ${className}`}
         style={{
           background: "linear-gradient(90deg,#261be6,#3b2cf2)",
-          boxShadow: "0 4px 20px rgba(59,44,242,0.3)"
+          boxShadow: "0 4px 20px rgba(59,44,242,0.3)",
         }}
       >
         {children}
@@ -70,7 +69,6 @@ const CTAButton: React.FC<CTAButtonProps> = ({
     </motion.button>
   );
 };
-
 
 // --- EFEK LOVE TRAIL ---
 type Love = { id: number; x: number; y: number };
@@ -107,7 +105,9 @@ const LoveTrail: React.FC = () => {
             transform: "translate(-50%, -50%)",
           }}
         >
-          <span className="text-red-500 text-lg md:text-2xl select-none">❤️</span>
+          <span className="text-red-500 text-lg md:text-2xl select-none">
+            ❤️
+          </span>
         </motion.div>
       ))}
     </>
@@ -120,12 +120,10 @@ const App: React.FC = () => {
 
   return (
     <div className="relative min-h-screen w-full flex items-center justify-center bg-white overflow-hidden font-poppins">
-      {/* Efek Love Cursor */}
       <LoveTrail />
 
       <main className="w-full px-6 md:px-10 lg:px-24 text-center">
         <section className="max-w-5xl mx-auto">
-          {/* Judul */}
           <motion.h1
             variants={textVariant}
             initial="hidden"
@@ -136,7 +134,6 @@ const App: React.FC = () => {
             Hi Keizory Adzra
           </motion.h1>
 
-          {/* Subjudul */}
           <motion.h2
             variants={textVariant}
             initial="hidden"
@@ -147,7 +144,6 @@ const App: React.FC = () => {
             Davinka
           </motion.h2>
 
-          {/* Kalimat */}
           <motion.p
             variants={textVariant}
             initial="hidden"
@@ -158,7 +154,6 @@ const App: React.FC = () => {
             I Have Something For You, Do You Wanna See?
           </motion.p>
 
-          {/* Tombol */}  
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
