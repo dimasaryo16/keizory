@@ -31,7 +31,12 @@ const CTAButton: React.FC<CTAButtonProps> = ({
 }) => {
   const hover = { scale: 1.05, y: -2 };
   const tap = { scale: 0.95 };
-  const transition = { type: "spring", stiffness: 300, damping: 20 };
+  const transition = {
+  type: "spring" as "spring",
+  stiffness: 300,
+  damping: 20,
+  };
+
 
   if (variant === "primary") {
     return (
