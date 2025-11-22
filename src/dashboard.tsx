@@ -126,7 +126,7 @@ const timelineItems = [
     title: "1st Anniv",
     desc: "EHHH SERIUSS SETAHUN ??",
   },
-  { step: "23 Nov 2024", title: "2nd Anniv", desc: "Now it has been two years, and I hope this story lasts forever." },
+  { step: "23 Nov 2025", title: "2nd Anniv", desc: "Now it has been two years, and I hope this story lasts forever." },
 ];
 
 // 📷 Photobooth slider dummy data
@@ -147,11 +147,11 @@ const photobooth = [
     desc: "ANAK FUTSAL,ANAK TARII????",
   },
     {
-    img: "images/my_birthday.jpg",
+    img: "/images/my_birthday.jpg",
     desc: "THANKYOUU FOR SURPRISING ME",
   },
     {
-    img: "images/pizza.jpg",
+    img: "/images/pizza.jpg",
     desc: "MAGANG DI MARZANO CERITANYAA",
   },
 ];
