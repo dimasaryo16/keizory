@@ -45,7 +45,7 @@ const CTAButton: React.FC<CTAButtonProps> = ({
       <motion.button
         whileHover={hover}
         whileTap={tap}
-        transition={transition}
+        transition={{ layout: { duration: 0.3 }, type: "spring", stiffness: 300, damping: 20 }}
         {...rest}
         className={`rounded-full px-8 py-3 text-white font-semibold shadow-lg text-sm md:text-base ${className}`}
         style={{
@@ -62,7 +62,7 @@ const CTAButton: React.FC<CTAButtonProps> = ({
     <motion.button
       whileHover={hover}
       whileTap={tap}
-      transition={transition}
+      transition={{ layout: { duration: 0.3 }, type: "spring", stiffness: 300, damping: 20 }}
       {...rest}
       className={`rounded-full px-6 py-2 border-2 border-[#3b2cf2] text-[#3b2cf2] font-semibold bg-transparent hover:bg-[#f8f7ff] text-sm md:text-base ${className}`}
     >
